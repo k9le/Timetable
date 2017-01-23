@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6B5AA651E30EFBF0005A4D3 /* B32MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B5AA641E30EFBF0005A4D3 /* B32MainView.m */; };
+		E6B97D251E23995200F38E66 /* doroga_vdal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6B97D231E23995200F38E66 /* doroga_vdal.jpg */; };
+		E6B97D2C1E2428EE00F38E66 /* B32MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B97D2B1E2428EE00F38E66 /* B32MainTableView.m */; };
+		E6B97D2F1E264ED600F38E66 /* B32FromToTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B97D2E1E264ED600F38E66 /* B32FromToTableViewCell.m */; };
+		E6B97D321E2670BF00F38E66 /* B32DateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B97D311E2670BF00F38E66 /* B32DateTableViewCell.m */; };
 		E6BE55E51E22E2F80060F008 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE55E41E22E2F80060F008 /* main.m */; };
 		E6BE55E81E22E2F80060F008 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE55E71E22E2F80060F008 /* AppDelegate.m */; };
-		E6BE55EB1E22E2F80060F008 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE55EA1E22E2F80060F008 /* ViewController.m */; };
 		E6BE55EE1E22E2F80060F008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6BE55EC1E22E2F80060F008 /* Main.storyboard */; };
 		E6BE55F01E22E2F80060F008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6BE55EF1E22E2F80060F008 /* Assets.xcassets */; };
 		E6BE55F31E22E2F80060F008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6BE55F11E22E2F80060F008 /* LaunchScreen.storyboard */; };
 		E6BE55FE1E22E2F90060F008 /* TimetableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE55FD1E22E2F90060F008 /* TimetableTests.m */; };
+		E6BE560A1E22E60B0060F008 /* B32MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE56091E22E60B0060F008 /* B32MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,12 +32,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E6B5AA631E30EFBF0005A4D3 /* B32MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32MainView.h; sourceTree = "<group>"; };
+		E6B5AA641E30EFBF0005A4D3 /* B32MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32MainView.m; sourceTree = "<group>"; };
+		E6B97D231E23995200F38E66 /* doroga_vdal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = doroga_vdal.jpg; sourceTree = "<group>"; };
+		E6B97D2A1E2428EE00F38E66 /* B32MainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32MainTableView.h; sourceTree = "<group>"; };
+		E6B97D2B1E2428EE00F38E66 /* B32MainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32MainTableView.m; sourceTree = "<group>"; };
+		E6B97D2D1E264ED600F38E66 /* B32FromToTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32FromToTableViewCell.h; sourceTree = "<group>"; };
+		E6B97D2E1E264ED600F38E66 /* B32FromToTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32FromToTableViewCell.m; sourceTree = "<group>"; };
+		E6B97D301E2670BF00F38E66 /* B32DateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32DateTableViewCell.h; sourceTree = "<group>"; };
+		E6B97D311E2670BF00F38E66 /* B32DateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32DateTableViewCell.m; sourceTree = "<group>"; };
 		E6BE55E01E22E2F80060F008 /* Timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6BE55E41E22E2F80060F008 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E6BE55E61E22E2F80060F008 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E6BE55E71E22E2F80060F008 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E6BE55E91E22E2F80060F008 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E6BE55EA1E22E2F80060F008 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E6BE55ED1E22E2F80060F008 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E6BE55EF1E22E2F80060F008 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6BE55F21E22E2F80060F008 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +52,8 @@
 		E6BE55F91E22E2F90060F008 /* TimetableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimetableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6BE55FD1E22E2F90060F008 /* TimetableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimetableTests.m; sourceTree = "<group>"; };
 		E6BE55FF1E22E2F90060F008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6BE56081E22E60B0060F008 /* B32MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32MainViewController.h; sourceTree = "<group>"; };
+		E6BE56091E22E60B0060F008 /* B32MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +95,12 @@
 		E6BE55E21E22E2F80060F008 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
-				E6BE55E61E22E2F80060F008 /* AppDelegate.h */,
-				E6BE55E71E22E2F80060F008 /* AppDelegate.m */,
-				E6BE55E91E22E2F80060F008 /* ViewController.h */,
-				E6BE55EA1E22E2F80060F008 /* ViewController.m */,
+				E6BE560D1E22E63E0060F008 /* Model */,
+				E6BE560C1E22E6310060F008 /* View */,
+				E6BE560B1E22E6100060F008 /* Controller */,
+				E6BE560E1E22E6D70060F008 /* Other */,
 				E6BE55EC1E22E2F80060F008 /* Main.storyboard */,
+				E6B97D231E23995200F38E66 /* doroga_vdal.jpg */,
 				E6BE55EF1E22E2F80060F008 /* Assets.xcassets */,
 				E6BE55F11E22E2F80060F008 /* LaunchScreen.storyboard */,
 				E6BE55F41E22E2F80060F008 /* Info.plist */,
@@ -109,6 +124,46 @@
 				E6BE55FF1E22E2F90060F008 /* Info.plist */,
 			);
 			path = TimetableTests;
+			sourceTree = "<group>";
+		};
+		E6BE560B1E22E6100060F008 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6BE56081E22E60B0060F008 /* B32MainViewController.h */,
+				E6BE56091E22E60B0060F008 /* B32MainViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E6BE560C1E22E6310060F008 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E6B5AA631E30EFBF0005A4D3 /* B32MainView.h */,
+				E6B5AA641E30EFBF0005A4D3 /* B32MainView.m */,
+				E6B97D2A1E2428EE00F38E66 /* B32MainTableView.h */,
+				E6B97D2B1E2428EE00F38E66 /* B32MainTableView.m */,
+				E6B97D301E2670BF00F38E66 /* B32DateTableViewCell.h */,
+				E6B97D311E2670BF00F38E66 /* B32DateTableViewCell.m */,
+				E6B97D2D1E264ED600F38E66 /* B32FromToTableViewCell.h */,
+				E6B97D2E1E264ED600F38E66 /* B32FromToTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E6BE560D1E22E63E0060F008 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E6BE560E1E22E6D70060F008 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E6BE55E61E22E2F80060F008 /* AppDelegate.h */,
+				E6BE55E71E22E2F80060F008 /* AppDelegate.m */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6B97D251E23995200F38E66 /* doroga_vdal.jpg in Resources */,
 				E6BE55F31E22E2F80060F008 /* LaunchScreen.storyboard in Resources */,
 				E6BE55F01E22E2F80060F008 /* Assets.xcassets in Resources */,
 				E6BE55EE1E22E2F80060F008 /* Main.storyboard in Resources */,
@@ -215,9 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6BE55EB1E22E2F80060F008 /* ViewController.m in Sources */,
+				E6B97D2C1E2428EE00F38E66 /* B32MainTableView.m in Sources */,
+				E6B97D321E2670BF00F38E66 /* B32DateTableViewCell.m in Sources */,
 				E6BE55E81E22E2F80060F008 /* AppDelegate.m in Sources */,
 				E6BE55E51E22E2F80060F008 /* main.m in Sources */,
+				E6B97D2F1E264ED600F38E66 /* B32FromToTableViewCell.m in Sources */,
+				E6BE560A1E22E60B0060F008 /* B32MainViewController.m in Sources */,
+				E6B5AA651E30EFBF0005A4D3 /* B32MainView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +416,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bryansk.32.Timetable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -368,6 +429,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bryansk.32.Timetable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -416,6 +478,7 @@
 				E6BE56041E22E2F90060F008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6BE56051E22E2F90060F008 /* Build configuration list for PBXNativeTarget "TimetableTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +487,7 @@
 				E6BE56071E22E2F90060F008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
