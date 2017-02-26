@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface B32MainViewController : UIViewController
+@interface B32MainViewController : UIViewController <UIViewControllerTransitioningDelegate>
 
 @end

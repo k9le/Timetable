@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad9_7" orientation="portrait">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,16 +20,16 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="B32MainView">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doroga_vdal.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="INf-VN-lQh">
-                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f51-Dm-7pO" userLabel="SettingsView">
-                                <rect key="frame" x="264" y="634" width="240" height="340"/>
+                                <rect key="frame" x="67.5" y="277" width="240" height="340"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bME-uc-QEk" customClass="B32MainTableView">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bME-uc-QEk" customClass="B32MainTableView">
                                         <rect key="frame" x="5" y="5" width="230" height="220"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
@@ -37,7 +38,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="230" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hyp-sK-hbX" id="oWK-Gm-y9e">
-                                                    <rect key="frame" x="0.0" y="0.0" width="230" height="59"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="230" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FromTo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFG-ME-6oC" userLabel="FromTo">
@@ -65,7 +66,7 @@
                                                 <rect key="frame" x="0.0" y="88" width="230" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eSp-XS-Dk7" id="sBF-Se-gCE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="230" height="59"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="230" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhQ-Lp-kDz" userLabel="Date">
@@ -93,6 +94,7 @@
                                                 <connections>
                                                     <outlet property="dateLabel" destination="jhQ-Lp-kDz" id="Vey-V8-Myg"/>
                                                     <outlet property="dateValueLabel" destination="RWy-gK-qhu" id="NjW-AJ-E4J"/>
+                                                    <segue destination="aBw-bK-LU2" kind="presentation" id="5hq-4b-QUP"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -146,6 +148,7 @@
                             <outlet property="buttonBottomConstraint" destination="bkc-ct-IKg" id="BxL-5e-27Y"/>
                             <outlet property="buttonHeightConstraint" destination="WGy-zW-VTb" id="f0P-Y6-hhd"/>
                             <outlet property="buttonWidthConstraint" destination="8aV-eD-jxZ" id="5I8-wL-WZz"/>
+                            <outlet property="mainTableView" destination="bME-uc-QEk" id="gfo-jA-JYn"/>
                             <outlet property="settingsViewBottomConstraint" destination="bNR-5S-8LL" id="idO-do-Glq"/>
                             <outlet property="settingsViewHeightConstraint" destination="7Zs-df-xgK" id="FIi-OJ-Gb1"/>
                             <outlet property="settingsViewWidthConstraint" destination="1hz-8M-IIH" id="RXG-BM-7OD"/>
@@ -154,13 +157,92 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="LeK-Lp-OCg"/>
+                    <connections>
+                        <outlet property="mainTableView" destination="bME-uc-QEk" id="fSA-Al-2BV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1478" y="138"/>
         </scene>
+        <!--Date Picker View Controller-->
+        <scene sceneID="gMN-4g-987">
+            <objects>
+                <viewController id="ctM-lA-3NH" customClass="B32DatePickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3K8-Em-2SP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fsp-5B-5CB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wGD-mG-97f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qm9-zo-QUA" customClass="B32DatePicker">
+                                <rect key="frame" x="0.0" y="64" width="375" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="PRn-M8-kvY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qm9-zo-QUA" firstAttribute="top" secondItem="3K8-Em-2SP" secondAttribute="bottom" id="0pt-r3-gKw"/>
+                            <constraint firstItem="qm9-zo-QUA" firstAttribute="leading" secondItem="wGD-mG-97f" secondAttribute="leading" id="QyR-Q1-9Tf"/>
+                            <constraint firstAttribute="trailing" secondItem="qm9-zo-QUA" secondAttribute="trailing" id="v9t-Tl-NII"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XVd-17-FN1">
+                        <barButtonItem key="leftBarButtonItem" image="Delete" id="N2k-N9-bCJ">
+                            <connections>
+                                <segue destination="u0P-yM-eFk" kind="unwind" identifier="IDFunwindFromDatePicker" unwindAction="unwindFromDatePicker:" id="cgo-at-Jws"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="Forward" id="Zzu-m5-B9u">
+                                <connections>
+                                    <action selector="nextMonth" destination="qm9-zo-QUA" id="Asd-17-il2"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="Back" id="f54-c3-zkR">
+                                <connections>
+                                    <action selector="previousMonth" destination="qm9-zo-QUA" id="dJn-ff-ov9"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="qm9-zo-QUA" id="G50-ma-k4s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2x2-0Q-P2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="u0P-yM-eFk" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2972" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bS9-qM-nBZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aBw-bK-LU2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uFI-XN-min">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ctM-lA-3NH" kind="relationship" relationship="rootViewController" id="joj-bb-eGj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lBH-pq-XpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2265" y="136"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Back" width="22" height="22"/>
+        <image name="Delete" width="22" height="22"/>
+        <image name="Forward" width="22" height="22"/>
         <image name="doroga_vdal.jpg" width="1920" height="1080"/>
     </resources>
 </document>

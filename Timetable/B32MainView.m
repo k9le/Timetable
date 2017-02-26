@@ -7,6 +7,8 @@
 //
 
 #import "B32MainView.h"
+#import "B32MainTableView.h"
+#import "B32DateTableViewCell.h"
 
 @interface B32MainView ()
 
@@ -24,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonHeightConstraint;
 - (void)layoutSubviews;
+
+@property (weak, nonatomic) IBOutlet B32MainTableView *mainTableView;
 
 @end
 
@@ -54,6 +58,19 @@
     self.tableViewBottomConstraint.constant + self.buttonBottomConstraint.constant;
     
     self.settingsViewHeightConstraint.constant = settingsViewHeight;
+}
+
+- (CGRect)dateControlFrame
+{
+    for ( UITableViewCell * cell in self.mainTableView.visibleCells)
+    {
+        if(NO == [cell isKindOfClass:[B32DateTableViewCell class]]) continue;
+        B32DateTableViewCell * dateCell = cell;
+        
+        return [self convertRect:dateCell.frame fromView:self.mainTableView];
+    }
+    
+    return CGRectZero;
 }
 
 @end

@@ -19,6 +19,9 @@
 		E6BE55F31E22E2F80060F008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6BE55F11E22E2F80060F008 /* LaunchScreen.storyboard */; };
 		E6BE55FE1E22E2F90060F008 /* TimetableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE55FD1E22E2F90060F008 /* TimetableTests.m */; };
 		E6BE560A1E22E60B0060F008 /* B32MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BE56091E22E60B0060F008 /* B32MainViewController.m */; };
+		E6E061811E5C57BC00DF571E /* B32DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E0617F1E5C57BC00DF571E /* B32DatePicker.m */; };
+		E6E061841E5C7A5500DF571E /* B32DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E061831E5C7A5500DF571E /* B32DatePickerViewController.m */; };
+		E6E0618C1E60700F00DF571E /* B32DatePickerAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E0618B1E60700F00DF571E /* B32DatePickerAnimatedTransitioning.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,12 @@
 		E6BE55FF1E22E2F90060F008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6BE56081E22E60B0060F008 /* B32MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32MainViewController.h; sourceTree = "<group>"; };
 		E6BE56091E22E60B0060F008 /* B32MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32MainViewController.m; sourceTree = "<group>"; };
+		E6E0617F1E5C57BC00DF571E /* B32DatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32DatePicker.m; sourceTree = "<group>"; };
+		E6E061801E5C57BC00DF571E /* B32DatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32DatePicker.h; sourceTree = "<group>"; };
+		E6E061821E5C7A5500DF571E /* B32DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32DatePickerViewController.h; sourceTree = "<group>"; };
+		E6E061831E5C7A5500DF571E /* B32DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32DatePickerViewController.m; sourceTree = "<group>"; };
+		E6E0618A1E60700F00DF571E /* B32DatePickerAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32DatePickerAnimatedTransitioning.h; sourceTree = "<group>"; };
+		E6E0618B1E60700F00DF571E /* B32DatePickerAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32DatePickerAnimatedTransitioning.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +138,9 @@
 		E6BE560B1E22E6100060F008 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E6E061891E606FAB00DF571E /* Transition */,
+				E6E061821E5C7A5500DF571E /* B32DatePickerViewController.h */,
+				E6E061831E5C7A5500DF571E /* B32DatePickerViewController.m */,
 				E6BE56081E22E60B0060F008 /* B32MainViewController.h */,
 				E6BE56091E22E60B0060F008 /* B32MainViewController.m */,
 			);
@@ -140,6 +152,8 @@
 			children = (
 				E6B5AA631E30EFBF0005A4D3 /* B32MainView.h */,
 				E6B5AA641E30EFBF0005A4D3 /* B32MainView.m */,
+				E6E0617F1E5C57BC00DF571E /* B32DatePicker.m */,
+				E6E061801E5C57BC00DF571E /* B32DatePicker.h */,
 				E6B97D2A1E2428EE00F38E66 /* B32MainTableView.h */,
 				E6B97D2B1E2428EE00F38E66 /* B32MainTableView.m */,
 				E6B97D301E2670BF00F38E66 /* B32DateTableViewCell.h */,
@@ -164,6 +178,15 @@
 				E6BE55E71E22E2F80060F008 /* AppDelegate.m */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		E6E061891E606FAB00DF571E /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				E6E0618A1E60700F00DF571E /* B32DatePickerAnimatedTransitioning.h */,
+				E6E0618B1E60700F00DF571E /* B32DatePickerAnimatedTransitioning.m */,
+			);
+			name = Transition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +296,12 @@
 			files = (
 				E6B97D2C1E2428EE00F38E66 /* B32MainTableView.m in Sources */,
 				E6B97D321E2670BF00F38E66 /* B32DateTableViewCell.m in Sources */,
+				E6E0618C1E60700F00DF571E /* B32DatePickerAnimatedTransitioning.m in Sources */,
 				E6BE55E81E22E2F80060F008 /* AppDelegate.m in Sources */,
 				E6BE55E51E22E2F80060F008 /* main.m in Sources */,
+				E6E061841E5C7A5500DF571E /* B32DatePickerViewController.m in Sources */,
 				E6B97D2F1E264ED600F38E66 /* B32FromToTableViewCell.m in Sources */,
+				E6E061811E5C57BC00DF571E /* B32DatePicker.m in Sources */,
 				E6BE560A1E22E60B0060F008 /* B32MainViewController.m in Sources */,
 				E6B5AA651E30EFBF0005A4D3 /* B32MainView.m in Sources */,
 			);

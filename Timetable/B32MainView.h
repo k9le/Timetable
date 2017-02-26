@@ -10,5 +10,6 @@
 
 @interface B32MainView : UIView
 
+@property (nonatomic, readonly) CGRect dateControlFrame;
 
 @end

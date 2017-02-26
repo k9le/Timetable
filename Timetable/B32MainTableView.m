@@ -45,12 +45,26 @@
         [cell setFromToValueLabelText: @"123"];
         
     } else if (2 == row) {
+        B32DateTableViewCell * dateCell = [self dequeueReusableCellWithIdentifier:@"DateCell"];
+        
+        if(nil != self.date)
+        {
+            dateCell.actualDate = self.date;
+        }
 
-        return [self dequeueReusableCellWithIdentifier:@"DateCell"];
+        return dateCell;
     }
     
     return cell;
     
+}
+
+-(void)setDate:(NSDate *)date
+{
+    _date = date;
+    
+    NSIndexPath * indexPathForReload = [NSIndexPath indexPathForRow:2 inSection:0];
+    [self reloadRowsAtIndexPaths:@[indexPathForReload] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 
