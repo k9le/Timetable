@@ -65,7 +65,7 @@
     for ( UITableViewCell * cell in self.mainTableView.visibleCells)
     {
         if(NO == [cell isKindOfClass:[B32DateTableViewCell class]]) continue;
-        B32DateTableViewCell * dateCell = cell;
+        B32DateTableViewCell * dateCell = (B32DateTableViewCell *) cell;
         
         return [self convertRect:dateCell.frame fromView:self.mainTableView];
     }

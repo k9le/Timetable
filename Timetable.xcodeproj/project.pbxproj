@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E627B7FD1E6B33970081FE8E /* StationDataTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = E627B7FB1E6B33970081FE8E /* StationDataTypes.m */; };
+		E627B8021E6B34370081FE8E /* B32StationsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E627B7FE1E6B34370081FE8E /* B32StationsDataSource.m */; };
+		E627B8031E6B34370081FE8E /* B32StationsData.m in Sources */ = {isa = PBXBuildFile; fileRef = E627B8001E6B34370081FE8E /* B32StationsData.m */; };
+		E627B80B1E6B34CE0081FE8E /* B32GroupByCountryCityPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = E627B8051E6B34CE0081FE8E /* B32GroupByCountryCityPattern.m */; };
+		E627B80C1E6B34CE0081FE8E /* B32GroupByCityCountryPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = E627B8071E6B34CE0081FE8E /* B32GroupByCityCountryPattern.m */; };
+		E627B8101E6B35480081FE8E /* B32JSONFileLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E627B80E1E6B35480081FE8E /* B32JSONFileLoader.m */; };
+		E627B8161E6B389D0081FE8E /* B32StationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E627B8151E6B389D0081FE8E /* B32StationsViewController.m */; };
+		E627B81C1E6B5ADA0081FE8E /* B32StationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E627B81A1E6B5ADA0081FE8E /* B32StationTableViewCell.m */; };
+		E627B81F1E6B67C50081FE8E /* B32GroupByCountryPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = E627B81E1E6B67C50081FE8E /* B32GroupByCountryPattern.m */; };
+		E677195C1E64868200A909DA /* allStations.json in Resources */ = {isa = PBXBuildFile; fileRef = E677195B1E64868200A909DA /* allStations.json */; };
 		E6B5AA651E30EFBF0005A4D3 /* B32MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B5AA641E30EFBF0005A4D3 /* B32MainView.m */; };
 		E6B97D251E23995200F38E66 /* doroga_vdal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6B97D231E23995200F38E66 /* doroga_vdal.jpg */; };
 		E6B97D2C1E2428EE00F38E66 /* B32MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B97D2B1E2428EE00F38E66 /* B32MainTableView.m */; };
@@ -35,6 +45,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E627B7FB1E6B33970081FE8E /* StationDataTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StationDataTypes.m; path = StationData/StationDataTypes.m; sourceTree = "<group>"; };
+		E627B7FC1E6B33970081FE8E /* StationDataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StationDataTypes.h; path = StationData/StationDataTypes.h; sourceTree = "<group>"; };
+		E627B7FE1E6B34370081FE8E /* B32StationsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = B32StationsDataSource.m; path = StationData/B32StationsDataSource.m; sourceTree = "<group>"; };
+		E627B7FF1E6B34370081FE8E /* B32StationsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = B32StationsDataSource.h; path = StationData/B32StationsDataSource.h; sourceTree = "<group>"; };
+		E627B8001E6B34370081FE8E /* B32StationsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = B32StationsData.m; path = StationData/B32StationsData.m; sourceTree = "<group>"; };
+		E627B8011E6B34370081FE8E /* B32StationsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = B32StationsData.h; path = StationData/B32StationsData.h; sourceTree = "<group>"; };
+		E627B8051E6B34CE0081FE8E /* B32GroupByCountryCityPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = B32GroupByCountryCityPattern.m; path = StationData/B32GroupByCountryCityPattern.m; sourceTree = "<group>"; };
+		E627B8061E6B34CE0081FE8E /* B32GroupByCountryCityPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = B32GroupByCountryCityPattern.h; path = StationData/B32GroupByCountryCityPattern.h; sourceTree = "<group>"; };
+		E627B8071E6B34CE0081FE8E /* B32GroupByCityCountryPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = B32GroupByCityCountryPattern.m; path = StationData/B32GroupByCityCountryPattern.m; sourceTree = "<group>"; };
+		E627B8081E6B34CE0081FE8E /* B32GroupByCityCountryPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = B32GroupByCityCountryPattern.h; path = StationData/B32GroupByCityCountryPattern.h; sourceTree = "<group>"; };
+		E627B8091E6B34CE0081FE8E /* B32GroupableIFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = B32GroupableIFace.h; path = StationData/B32GroupableIFace.h; sourceTree = "<group>"; };
+		E627B80A1E6B34CE0081FE8E /* B32DataLoaderIFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = B32DataLoaderIFace.h; path = StationData/B32DataLoaderIFace.h; sourceTree = "<group>"; };
+		E627B80E1E6B35480081FE8E /* B32JSONFileLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = B32JSONFileLoader.m; path = StationData/B32JSONFileLoader.m; sourceTree = "<group>"; };
+		E627B80F1E6B35480081FE8E /* B32JSONFileLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = B32JSONFileLoader.h; path = StationData/B32JSONFileLoader.h; sourceTree = "<group>"; };
+		E627B8141E6B389D0081FE8E /* B32StationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32StationsViewController.h; sourceTree = "<group>"; };
+		E627B8151E6B389D0081FE8E /* B32StationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32StationsViewController.m; sourceTree = "<group>"; };
+		E627B81A1E6B5ADA0081FE8E /* B32StationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32StationTableViewCell.m; sourceTree = "<group>"; };
+		E627B81B1E6B5ADA0081FE8E /* B32StationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32StationTableViewCell.h; sourceTree = "<group>"; };
+		E627B81D1E6B67C50081FE8E /* B32GroupByCountryPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = B32GroupByCountryPattern.h; path = StationData/B32GroupByCountryPattern.h; sourceTree = "<group>"; };
+		E627B81E1E6B67C50081FE8E /* B32GroupByCountryPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = B32GroupByCountryPattern.m; path = StationData/B32GroupByCountryPattern.m; sourceTree = "<group>"; };
+		E677195B1E64868200A909DA /* allStations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allStations.json; sourceTree = "<group>"; };
 		E6B5AA631E30EFBF0005A4D3 /* B32MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32MainView.h; sourceTree = "<group>"; };
 		E6B5AA641E30EFBF0005A4D3 /* B32MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32MainView.m; sourceTree = "<group>"; };
 		E6B97D231E23995200F38E66 /* doroga_vdal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = doroga_vdal.jpg; sourceTree = "<group>"; };
@@ -83,6 +114,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E627B8041E6B344D0081FE8E /* Station Data */ = {
+			isa = PBXGroup;
+			children = (
+				E627B80D1E6B34E70081FE8E /* Station Group Patterns */,
+				E677195B1E64868200A909DA /* allStations.json */,
+				E627B7FB1E6B33970081FE8E /* StationDataTypes.m */,
+				E627B7FC1E6B33970081FE8E /* StationDataTypes.h */,
+				E627B7FE1E6B34370081FE8E /* B32StationsDataSource.m */,
+				E627B7FF1E6B34370081FE8E /* B32StationsDataSource.h */,
+				E627B8001E6B34370081FE8E /* B32StationsData.m */,
+				E627B8011E6B34370081FE8E /* B32StationsData.h */,
+				E627B8091E6B34CE0081FE8E /* B32GroupableIFace.h */,
+				E627B80A1E6B34CE0081FE8E /* B32DataLoaderIFace.h */,
+				E627B80E1E6B35480081FE8E /* B32JSONFileLoader.m */,
+				E627B80F1E6B35480081FE8E /* B32JSONFileLoader.h */,
+			);
+			name = "Station Data";
+			sourceTree = "<group>";
+		};
+		E627B80D1E6B34E70081FE8E /* Station Group Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				E627B8051E6B34CE0081FE8E /* B32GroupByCountryCityPattern.m */,
+				E627B8061E6B34CE0081FE8E /* B32GroupByCountryCityPattern.h */,
+				E627B8071E6B34CE0081FE8E /* B32GroupByCityCountryPattern.m */,
+				E627B8081E6B34CE0081FE8E /* B32GroupByCityCountryPattern.h */,
+				E627B81E1E6B67C50081FE8E /* B32GroupByCountryPattern.m */,
+				E627B81D1E6B67C50081FE8E /* B32GroupByCountryPattern.h */,
+			);
+			name = "Station Group Patterns";
+			sourceTree = "<group>";
+		};
 		E6BE55D71E22E2F80060F008 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +206,8 @@
 				E6E061831E5C7A5500DF571E /* B32DatePickerViewController.m */,
 				E6BE56081E22E60B0060F008 /* B32MainViewController.h */,
 				E6BE56091E22E60B0060F008 /* B32MainViewController.m */,
+				E627B8141E6B389D0081FE8E /* B32StationsViewController.h */,
+				E627B8151E6B389D0081FE8E /* B32StationsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -160,6 +225,8 @@
 				E6B97D311E2670BF00F38E66 /* B32DateTableViewCell.m */,
 				E6B97D2D1E264ED600F38E66 /* B32FromToTableViewCell.h */,
 				E6B97D2E1E264ED600F38E66 /* B32FromToTableViewCell.m */,
+				E627B81B1E6B5ADA0081FE8E /* B32StationTableViewCell.h */,
+				E627B81A1E6B5ADA0081FE8E /* B32StationTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -167,6 +234,7 @@
 		E6BE560D1E22E63E0060F008 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E627B8041E6B344D0081FE8E /* Station Data */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -233,7 +301,7 @@
 		E6BE55D81E22E2F80060F008 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Vasiliy Fedotov";
 				TargetAttributes = {
 					E6BE55DF1E22E2F80060F008 = {
@@ -274,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6B97D251E23995200F38E66 /* doroga_vdal.jpg in Resources */,
+				E677195C1E64868200A909DA /* allStations.json in Resources */,
 				E6BE55F31E22E2F80060F008 /* LaunchScreen.storyboard in Resources */,
 				E6BE55F01E22E2F80060F008 /* Assets.xcassets in Resources */,
 				E6BE55EE1E22E2F80060F008 /* Main.storyboard in Resources */,
@@ -295,15 +364,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6B97D2C1E2428EE00F38E66 /* B32MainTableView.m in Sources */,
+				E627B80B1E6B34CE0081FE8E /* B32GroupByCountryCityPattern.m in Sources */,
+				E627B81C1E6B5ADA0081FE8E /* B32StationTableViewCell.m in Sources */,
 				E6B97D321E2670BF00F38E66 /* B32DateTableViewCell.m in Sources */,
 				E6E0618C1E60700F00DF571E /* B32DatePickerAnimatedTransitioning.m in Sources */,
 				E6BE55E81E22E2F80060F008 /* AppDelegate.m in Sources */,
 				E6BE55E51E22E2F80060F008 /* main.m in Sources */,
+				E627B8101E6B35480081FE8E /* B32JSONFileLoader.m in Sources */,
+				E627B8021E6B34370081FE8E /* B32StationsDataSource.m in Sources */,
 				E6E061841E5C7A5500DF571E /* B32DatePickerViewController.m in Sources */,
 				E6B97D2F1E264ED600F38E66 /* B32FromToTableViewCell.m in Sources */,
+				E627B8031E6B34370081FE8E /* B32StationsData.m in Sources */,
 				E6E061811E5C57BC00DF571E /* B32DatePicker.m in Sources */,
+				E627B81F1E6B67C50081FE8E /* B32GroupByCountryPattern.m in Sources */,
+				E627B8161E6B389D0081FE8E /* B32StationsViewController.m in Sources */,
 				E6BE560A1E22E60B0060F008 /* B32MainViewController.m in Sources */,
 				E6B5AA651E30EFBF0005A4D3 /* B32MainView.m in Sources */,
+				E627B7FD1E6B33970081FE8E /* StationDataTypes.m in Sources */,
+				E627B80C1E6B34CE0081FE8E /* B32GroupByCityCountryPattern.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +441,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -410,6 +489,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

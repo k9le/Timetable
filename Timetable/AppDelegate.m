@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "B32JSONFileLoader.h"
+#import "B32StationsData.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
+        
+        B32JSONFileLoader * loader = [[B32JSONFileLoader alloc] init];
+        B32StationsData * sharedData = [B32StationsData shared];
+        
+        [sharedData loadWithLoader:loader];
+        
+        NSLog(@"Data is loaded");
+    });
+    
     return YES;
 }
 

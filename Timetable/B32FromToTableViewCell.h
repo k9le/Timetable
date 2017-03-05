@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    B32FromToTableViewCellTypeFrom,
+    B32FromToTableViewCellTypeTo
+} B32FromToTableViewCellType;
+
 @interface B32FromToTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *fromToLabel;
@@ -15,5 +20,7 @@
 
 @property (nonatomic) NSString * fromToLabelText;
 @property (nonatomic) NSString * fromToValueLabelText;
+
+@property (nonatomic) B32FromToTableViewCellType type;
 
 @end

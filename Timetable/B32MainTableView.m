@@ -38,11 +38,13 @@
         
         [cell setFromToLabelText: @"Откуда"];
         [cell setFromToValueLabelText: @"123"];
+        [cell setType:B32FromToTableViewCellTypeFrom];
         
     } else if (1 == row) {
 
         [cell setFromToLabelText: @"Куда"];
         [cell setFromToValueLabelText: @"123"];
+        [cell setType:B32FromToTableViewCellTypeTo];
         
     } else if (2 == row) {
         B32DateTableViewCell * dateCell = [self dequeueReusableCellWithIdentifier:@"DateCell"];

@@ -11,6 +11,9 @@
 #import "B32MainTableView.h"
 #import "B32MainView.h"
 #import "B32DatePickerAnimatedTransitioning.h"
+#import "B32FromToTableViewCell.h"
+#import "B32StationsViewController.h"
+#import "B32StationsData.h"
 
 @interface B32MainViewController ()
 
@@ -47,6 +50,11 @@
     self.mainTableView.date = date;
 }
 
+-(IBAction)unwindFromStationChooser:(UIStoryboardSegue *) segue
+{
+    
+}
+
 // UIViewControllerTransitioningDelegate functions
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
@@ -66,8 +74,25 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    self.animator = [[B32DatePickerAnimatedTransitioning alloc] init];
-    segue.destinationViewController.transitioningDelegate = self;
+    if([segue.identifier isEqualToString:@"DateSegue"])
+    {
+        if(nil == self.animator) self.animator = [[B32DatePickerAnimatedTransitioning alloc] init];
+        
+        segue.destinationViewController.transitioningDelegate = self;
+    }
+    
+    if([segue.identifier isEqualToString:@"StationSegue"])
+    {
+        B32FromToTableViewCell * cell = (B32FromToTableViewCell *) sender;
+        if(B32FromToTableViewCellTypeTo == cell.type)
+        {
+            B32StationsViewController * stationsVC = (B32StationsViewController *)((UINavigationController * )segue.destinationViewController).topViewController;
+            stationsVC.stationsDataSource = [[B32StationsData shared] toStations];
+        } else {
+            B32StationsViewController * stationsVC = (B32StationsViewController *)((UINavigationController * )segue.destinationViewController).topViewController;
+            stationsVC.stationsDataSource = [[B32StationsData shared] fromStations];
+        }
+    }
 }
 
 @end
