@@ -126,7 +126,7 @@
                 [self hideLoadingViewWithAnimation:animation];
             };
             
-            NSTimeInterval minDelay = 1.5;
+            NSTimeInterval minDelay = 3.0;
             NSDate *secondMoment = [NSDate date];
             NSTimeInterval interval = [secondMoment timeIntervalSinceDate:firstMoment];
             NSTimeInterval difference = minDelay - interval - (animation ? 2 * _durationOfLoadingViewAnimation : 0);
