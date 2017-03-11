@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "B32SearchableIFace.h"
 
 @class B32CityItem;
 
@@ -19,7 +20,7 @@
 
 @end
 
-@interface B32StationItem : NSObject
+@interface B32StationItem : NSObject <B32SearchableIFace>
 
 @property (nonatomic) NSString * countryTitle;
 @property (nonatomic) B32PointItem * point;
@@ -43,6 +44,7 @@
                             stationId: (NSInteger) stationId
                          stationTitle: (NSString * ) stationTitle
                                  city: (B32CityItem * ) city;
+
 
 
 @end

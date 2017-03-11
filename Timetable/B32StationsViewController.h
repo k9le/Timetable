@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "B32StationsDataSource.h"
 
-@interface B32StationsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface B32StationsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (nonatomic) B32StationsDataSource * stationsDataSource;
 

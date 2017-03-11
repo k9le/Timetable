@@ -48,8 +48,6 @@
                          stationTitle: (NSString * ) stationTitle
                                  city: (B32CityItem * ) city;
 
-
-
 @end
 
 @implementation B32StationItem
@@ -96,6 +94,31 @@
 {
     return [[B32StationItem alloc] initWithCountryTitle:countryTitle point:point districtTitle:districtTitle cityId:cityId cityTitle:cityTitle regionTitle:regionTitle stationId:stationId stationTitle:stationTitle city:city];
 }
+
+- (BOOL)doesItemSatisfyRequest:(B32SearchRequest *)request
+{
+    NSArray * substrings = [request substrings];
+    
+    for(NSString * substring in substrings)
+    {
+        if(
+           [_countryTitle localizedCaseInsensitiveContainsString:substring] ||
+           [_districtTitle localizedCaseInsensitiveContainsString:substring] ||
+           [_cityTitle localizedCaseInsensitiveContainsString:substring] ||
+           [_regionTitle localizedCaseInsensitiveContainsString:substring] ||
+           [_stationTitle localizedCaseInsensitiveContainsString:substring] ||
+           [self.city.countryTitle localizedCaseInsensitiveContainsString:substring] ||
+           [self.city.districtTitle localizedCaseInsensitiveContainsString:substring] ||
+           [self.city.cityTitle localizedCaseInsensitiveContainsString:substring] ||
+           [self.city.regionTitle localizedCaseInsensitiveContainsString:substring]
+           ) {;} else {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
 
 @end
 
