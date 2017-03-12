@@ -33,6 +33,14 @@
     
     self.datePicker.delegate = self;
     
+    UINavigationBar * navBar = self.navigationController.navigationBar;
+    if(nil != navBar)
+    {
+
+        self.datePicker.weekdayHeaderFontColor = navBar.tintColor;
+        self.datePicker.weekdayHeaderColor = navBar.barTintColor;
+    }
+    
     // FIRST EXECUTION
     [self pickerView:self.datePicker displayedMonthWasChangedTo:self.datePicker.monthAndYearToShow];
 }
@@ -51,7 +59,7 @@
 {
     NSDateFormatter * dfForMonth = [[NSDateFormatter alloc] init];
     [dfForMonth setLocale: [NSLocale currentLocale]];
-    NSArray * monthSymbols = [dfForMonth monthSymbols];
+    NSArray * monthSymbols = [dfForMonth standaloneMonthSymbols];
     NSString * month = monthSymbols[dateComponents.month - 1];
     NSString * year = [@(dateComponents.year) stringValue];
     
