@@ -36,6 +36,10 @@
 
 - (void) loadWithLoader:(id<B32DataLoaderIFace>)loader
 {
+    // Delay for demonstration
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
+
     [loader loadStationData];
     
     B32GroupByCountryCityPattern * pattern = [[B32GroupByCountryCityPattern alloc] init];
@@ -43,19 +47,16 @@
     [self.fromStations groupWithPattern:pattern completion:nil];
     [self.toStations groupWithPattern:pattern completion:nil];
 
-// Delay for demonstration
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
 
     self.loaded = YES;
 
     if(nil != self.completion)
     {
         self.completion();
+        self.completion = nil;
     }
         
     });
-//
 }
 
 + (instancetype) shared

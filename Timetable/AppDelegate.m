@@ -20,10 +20,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    B32JSONFileLoader * loader = [[B32JSONFileLoader alloc] init];
+    B32StationsData * sharedData = [B32StationsData shared];
+
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
-        
-        B32JSONFileLoader * loader = [[B32JSONFileLoader alloc] init];
-        B32StationsData * sharedData = [B32StationsData shared];
         
         [sharedData loadWithLoader:loader];
         

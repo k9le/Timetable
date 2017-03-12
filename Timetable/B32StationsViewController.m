@@ -30,11 +30,11 @@
 
 @property (nonatomic, readonly) NSString * searchRequest;
 
-@property (nonatomic) BOOL recentIsEmpty;
+@property (nonatomic) BOOL showRecent;
 - (void) prepareRecent;
-- (BOOL) showRecent;
 
 - (void) regroup;
+- (void) showAllStations;
 
 - (void) showLoadingViewWithAnimation:(BOOL)animation;
 - (void) hideLoadingViewWithAnimation:(BOOL)animation;
@@ -42,7 +42,6 @@
 - (void) reloadSearchBar;
 - (void) showSearchBarWithAnimation:(BOOL)animated;
 - (void) hideSearchBarWithAnimation:(BOOL)animated;
-- (BOOL) isSearchBarVisible;
 
 - (void) setSearchRightBarButtonItem;
 - (void) setGroupRightBarButtonItem;
@@ -71,24 +70,20 @@
     _durationOfSearchBarAnimation = 0.3f;
     
     [self reloadSearchBar];
+
+    [self prepareRecent];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    self.groupPattern = self.stationsDataSource.groupPattern;
-    
-    [self prepareRecent];
-    if(self.recentIsEmpty) {
-        [self rightBarButtonItemTapped:nil];
-    }
 }
 
 #pragma mark - Tableview delegate & dataSource funcs
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if ([self showRecent])
+    if (self.showRecent)
     {
         return 1;
         
@@ -112,7 +107,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if ([self showRecent])
+    if (self.showRecent)
     {
         return @"Недавно выбранные";
     } else {
@@ -130,7 +125,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([self showRecent])
+    if (self.showRecent)
     {
         return 0;
     } else {
@@ -153,7 +148,7 @@
     NSInteger row = [indexPath row];
     
     B32StationItem * station;
-    if ([self showRecent])
+    if (self.showRecent)
     {
         
     } else {
@@ -196,32 +191,45 @@
 
 - (IBAction)rightBarButtonItemTapped:(UIBarButtonItem *)sender {
 
-    if ([self isSearchBarVisible])
+    if(self.showRecent)
     {
-        [self.searchBar resignFirstResponder];
-
-        [self regroup];
+        self.showRecent = NO;
         
+        [self showAllStations];
     } else {
+        [self.searchBar resignFirstResponder];
         
-        [self setGroupRightBarButtonItem];
-        [self showSearchBarWithAnimation:YES];
-        
-        void (^asyncCompletionBlock)(void) = ^{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
-                [self hideLoadingViewWithAnimation:YES];
-            });
-        };
-        
-        if(![B32StationsData shared].loaded)
-        {
-            [self showLoadingViewWithAnimation:NO];
+        [self regroup];
+    }
+}
+
+- (void) showAllStations
+{
+    [self setGroupRightBarButtonItem];
+    
+    void (^asyncCompletionBlock)(void) = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             
-            [[B32StationsData shared] setCompletion: asyncCompletionBlock];
-        } else {
+            self.groupPattern = self.stationsDataSource.groupPattern;
             [self.tableView reloadData];
-        }
+
+            [self hideLoadingViewWithAnimation:YES];
+            [self setRightBarButtonItemEnabled:YES];
+            [self showSearchBarWithAnimation:YES];
+        });
+    };
+    
+    if(![B32StationsData shared].loaded)
+    {
+        [self hideSearchBarWithAnimation:NO];
+        [self showLoadingViewWithAnimation:NO];
+        [self setRightBarButtonItemEnabled:NO];
+        
+        [[B32StationsData shared] setCompletion: asyncCompletionBlock];
+    } else {
+        self.groupPattern = self.stationsDataSource.groupPattern;
+        [self.tableView reloadData];
+        [self showSearchBarWithAnimation:YES];
     }
 }
 
@@ -233,6 +241,10 @@
 
 - (void) regroup
 {
+    [self hideSearchBarWithAnimation:YES];
+    
+    NSIndexPath * topIndexPath = [NSIndexPath indexPathForRow:NSNotFound inSection:0];
+    
     void (^executeRegroup)(id<B32GroupableIFace> groupable) = ^(id<B32GroupableIFace> groupable){
         BOOL animation = YES;
         
@@ -244,7 +256,9 @@
             
             void (^executeRedraw)(void) = ^{
                 [self.tableView reloadData];
+                [self.tableView scrollToRowAtIndexPath:topIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
                 [self hideLoadingViewWithAnimation:animation];
+                [self showSearchBarWithAnimation:YES];
             };
             
             NSTimeInterval minDelay = 3.0;
@@ -265,6 +279,18 @@
         }];
     };
     
+    void (^checkRegroup)(Class groupClass) = ^(Class groupClass){
+        if([self.groupPattern isKindOfClass:[groupClass class]])
+        {
+            // уже сгруппировано как надо
+            [self showSearchBarWithAnimation:YES];
+            [self.tableView scrollToRowAtIndexPath:topIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            
+        } else {
+            self.groupPattern = [groupClass new];
+            executeRegroup(self.groupPattern);
+        }
+    };
     
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Сортировать список по:"
                                                                    message:nil
@@ -272,23 +298,22 @@
     
     UIAlertAction* countryAction = [UIAlertAction actionWithTitle:@"Стране" style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
-                                                              self.groupPattern = [B32GroupByCountryPattern new];
-                                                              executeRegroup(self.groupPattern);
+                                                              checkRegroup([B32GroupByCountryPattern class]);
                                                           }];
     UIAlertAction* countryCityAction = [UIAlertAction actionWithTitle:@"Стране, городу" style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * action) {
-                                                                  self.groupPattern = [B32GroupByCountryCityPattern new];
-                                                                  executeRegroup(self.groupPattern);
+                                                                  checkRegroup([B32GroupByCountryCityPattern class]);
                                                               }];
     
     UIAlertAction* cityCountryAction = [UIAlertAction actionWithTitle:@"Городу, стране" style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * action) {
-                                                                  self.groupPattern = [B32GroupByCityCountryPattern new];
-                                                                  executeRegroup(self.groupPattern);
+                                                                  checkRegroup([B32GroupByCityCountryPattern class]);
                                                               }];
     
     UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleCancel
-                                                         handler:^(UIAlertAction * action) {}];
+                                                         handler:^(UIAlertAction * action) {
+                                                             [self showSearchBarWithAnimation:YES];
+                                                                }];
     
     
     
@@ -392,7 +417,6 @@
     }
 }
 
-
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if(nil == searchText || 0 == searchText.length)
@@ -420,22 +444,16 @@
     [self.searchBar resignFirstResponder];
 }
 
-- (BOOL) isSearchBarVisible
-{
-    CGFloat constant = self.searchBarTopConstraint.constant;
-    return (0.f == constant);
-}
-
 #pragma mark - Recent management
 
 - (void) prepareRecent
 {
-    self.recentIsEmpty = YES;
-}
+    self.showRecent = NO;
+    
+    if(!self.showRecent) {
+        [self showAllStations];
+    }
 
-- (BOOL) showRecent
-{
-    return !self.recentIsEmpty && ![self isSearchBarVisible];
 }
 
 #pragma mark - Getters, setters
