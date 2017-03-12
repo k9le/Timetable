@@ -40,6 +40,8 @@ IB_DESIGNABLE
 @property (nonatomic) B32FirstWeekDay firstWeekday;
 
 @property (nonatomic) IBInspectable UIColor * weekdayHeaderColor;
+@property (nonatomic) IBInspectable UIFont * weekdayHeaderFont;
+@property (nonatomic) IBInspectable UIColor * weekdayHeaderFontColor;
 @property (nonatomic) IBInspectable UIColor * linesBetweenRowsColor;
 @property (nonatomic) IBInspectable UIFont * thisMonthDaysFont;
 @property (nonatomic) IBInspectable UIColor * thisMonthDaysFontColor;

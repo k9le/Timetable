@@ -125,6 +125,8 @@
     _monthAndYearToShow = [_calendar components:NSCalendarUnitMonth|NSCalendarUnitYear fromDate:[NSDate date]];
     _firstWeekday = B32FirstWeekDayMonday;
     _weekdayHeaderColor = [UIColor yellowColor];
+    _weekdayHeaderFont = [UIFont systemFontOfSize:12.f];
+    _weekdayHeaderFontColor = [UIColor blackColor];
     _linesBetweenRowsColor = [UIColor blackColor];
     _thisMonthDaysFont = [UIFont systemFontOfSize:15.f];
     _thisMonthDaysFontColor = [UIColor blackColor];
@@ -174,6 +176,8 @@
         
         weekdayLabel.frame = CGRectMake(d * oneDayWidth, 0, oneDayWidth, weekdayPaneHeight);
         weekdayLabel.textAlignment = NSTextAlignmentCenter;
+        weekdayLabel.font = self.weekdayHeaderFont;
+        weekdayLabel.textColor = self.weekdayHeaderFontColor;
         
         if(B32FirstWeekDayMonday == self.firstWeekday) {
             NSInteger weekdayIdx = (([self numDaysInWeek] - 1 == d) ? 0 : d + 1);
