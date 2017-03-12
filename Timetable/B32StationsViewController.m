@@ -42,6 +42,7 @@
 - (void) reloadSearchBar;
 - (void) showSearchBarWithAnimation:(BOOL)animated;
 - (void) hideSearchBarWithAnimation:(BOOL)animated;
+- (void) customizeSearchBar;
 
 - (void) setSearchRightBarButtonItem;
 - (void) setGroupRightBarButtonItem;
@@ -78,6 +79,8 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
+    [self customizeSearchBar];
 }
 
 #pragma mark - Tableview delegate & dataSource funcs
@@ -416,6 +419,15 @@
         } completion:nil];
     }
 }
+
+- (void) customizeSearchBar
+{
+    self.searchBar.barStyle = UIBarStyleDefault;
+    [self.searchBar setTranslucent:NO];
+    self.searchBar.barTintColor = self.navigationController.navigationBar.barTintColor;
+    self.searchBar.backgroundImage = [UIImage new];
+}
+
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {

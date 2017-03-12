@@ -10,6 +10,8 @@
 #import "B32JSONFileLoader.h"
 #import "B32StationsData.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @interface AppDelegate ()
 
 @end
@@ -20,6 +22,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    // customization of navigation bar
+    [[UINavigationBar appearance] setTranslucent:NO];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x87CEFA)];
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    // Load data
     B32JSONFileLoader * loader = [[B32JSONFileLoader alloc] init];
     B32StationsData * sharedData = [B32StationsData shared];
 
