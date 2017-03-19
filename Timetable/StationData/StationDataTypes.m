@@ -119,13 +119,52 @@
     return YES;
 }
 
+- (instancetype) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if(nil != self)
+    {
+        _countryTitle = [aDecoder decodeObjectForKey:@"countryTitle"];
+        float longitude = [aDecoder decodeFloatForKey:@"longitude"];
+        float latitude = [aDecoder decodeFloatForKey:@"latitude"];
+        _point = [B32PointItem itemWithLongitude:longitude latitude:latitude];
+        
+        _districtTitle = [aDecoder decodeObjectForKey:@"districtTitle"];
+        _cityId = [aDecoder decodeIntegerForKey:@"cityId"];
+        _cityTitle = [aDecoder decodeObjectForKey:@"cityTitle"];
+        _regionTitle = [aDecoder decodeObjectForKey:@"regionTitle"];
+        
+        _stationId = [aDecoder decodeIntegerForKey:@"stationId"];
+        _stationTitle = [aDecoder decodeObjectForKey:@"stationTitle"];
+        
+        _city = [aDecoder decodeObjectForKey:@"city"];
+        
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_countryTitle forKey:@"countryTitle"];
+    [aCoder encodeFloat:self.point.longitude forKey:@"longitude"];
+    [aCoder encodeFloat:self.point.latitude forKey:@"latitude"];
+
+    [aCoder encodeObject:_districtTitle forKey:@"districtTitle"];
+    [aCoder encodeInteger:_cityId forKey:@"cityId"];
+    [aCoder encodeObject:_cityTitle forKey:@"cityTitle"];
+    [aCoder encodeObject:_regionTitle forKey:@"regionTitle"];
+    
+    [aCoder encodeInteger:_stationId forKey:@"stationId"];
+    [aCoder encodeObject:_stationTitle forKey:@"stationTitle"];
+    
+    [aCoder encodeObject:_city forKey:@"city"];
+}
 
 @end
 
 
 @interface B32CityItem ()
-
-@property (nonatomic, readwrite) NSPointerArray * stations;
 
 - (instancetype) initWithCountryTitle: (NSString * ) countryTitle
                                 point: (B32PointItem *) point
@@ -169,6 +208,37 @@
                           regionTitle: (NSString * ) regionTitle
 {
     return [[B32CityItem alloc] initWithCountryTitle:countryTitle point:point districtTitle:districtTitle cityId:cityId cityTitle:cityTitle regionTitle:regionTitle];
+}
+
+- (instancetype) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if(nil != self)
+    {
+        _countryTitle = [aDecoder decodeObjectForKey:@"countryTitle"];
+        float longitude = [aDecoder decodeFloatForKey:@"longitude"];
+        float latitude = [aDecoder decodeFloatForKey:@"latitude"];
+        _point = [B32PointItem itemWithLongitude:longitude latitude:latitude];
+        
+        _districtTitle = [aDecoder decodeObjectForKey:@"districtTitle"];
+        _cityId = [aDecoder decodeIntegerForKey:@"cityId"];
+        _cityTitle = [aDecoder decodeObjectForKey:@"cityTitle"];
+        _regionTitle = [aDecoder decodeObjectForKey:@"regionTitle"];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_countryTitle forKey:@"countryTitle"];
+    [aCoder encodeFloat:self.point.longitude forKey:@"longitude"];
+    [aCoder encodeFloat:self.point.latitude forKey:@"latitude"];
+    
+    [aCoder encodeObject:_districtTitle forKey:@"districtTitle"];
+    [aCoder encodeInteger:_cityId forKey:@"cityId"];
+    [aCoder encodeObject:_cityTitle forKey:@"cityTitle"];
+    [aCoder encodeObject:_regionTitle forKey:@"regionTitle"];
 }
 
 @end

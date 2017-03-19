@@ -14,11 +14,15 @@
 #import "B32GroupByCountryCityPattern.h"
 #import "B32GroupByCountryPattern.h"
 #import "B32StationSearchProxy.h"
+#import "B32CoreDataStore.h"
+#import "B32StationMO+CoreDataClass.h"
 
 @interface B32StationsViewController ()
 {
     float _durationOfLoadingViewAnimation;
     float _durationOfSearchBarAnimation;
+    
+    NSInteger _numbefOfRecentItemsToStoreInCD;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -31,6 +35,9 @@
 @property (nonatomic, readonly) NSString * searchRequest;
 
 @property (nonatomic) BOOL showRecent;
+
+@property (nonatomic) NSFetchedResultsController * fetchedController;
+
 - (void) prepareRecent;
 
 - (void) regroup;
@@ -67,8 +74,14 @@
 
     self.searchBar.delegate = self;
     
+    NSFetchRequest * fetchRequest = [B32StationMO fetchRequestForFromStations:self.showFrom numberOfStationsToFetch:_numbefOfRecentItemsToStoreInCD];
+
+    NSManagedObjectContext * context = [[B32CoreDataStore shared] managedObjectContext];
+    self.fetchedController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    
     _durationOfLoadingViewAnimation = 0.20f;
     _durationOfSearchBarAnimation = 0.3f;
+    _numbefOfRecentItemsToStoreInCD = 5;
     
     [self reloadSearchBar];
 
@@ -130,7 +143,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.showRecent)
     {
-        return 0;
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedController sections] objectAtIndex:section];
+        return [sectionInfo numberOfObjects];
     } else {
     
         if(0 == section && nil != self.searchRequest)
@@ -153,7 +167,8 @@
     B32StationItem * station;
     if (self.showRecent)
     {
-        
+        B32StationMO * stationMO = [self.fetchedController objectAtIndexPath:indexPath];
+        station = stationMO.station;
     } else {
         if(nil != self.searchRequest)
         {
@@ -172,6 +187,71 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = [indexPath section];
+    NSInteger row = [indexPath row];
+    
+    if (self.showRecent)
+    {
+        B32StationMO * stationMO = [self.fetchedController objectAtIndexPath:indexPath];
+        
+        [stationMO refreshDate];
+        
+    } else {
+        B32StationItem * station = nil;
+        
+        if(nil != self.searchRequest)
+        {
+            station = [self.dataSourceSearchProxy getSearchedStationAtIndex:row];
+        } else {
+            station = [self.stationsDataSource getStationInGroup:section index:row];
+        }
+        
+        BOOL inCDCache = NO;
+        
+        NSData * stationData = [B32StationMO encodeStation:station];
+        for(NSInteger i = 0, im = self.fetchedController.fetchedObjects.count; i < im; i++)
+        {
+            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+            B32StationMO * object = [self.fetchedController objectAtIndexPath:indexPath];
+            
+            NSData * stationCDData = object.stationData;
+            
+            if([stationCDData isEqualToData:stationData])
+            {
+                inCDCache = YES;
+                
+                [object refreshDate];
+                break;
+            }
+        }
+        
+        if(!inCDCache)
+        {
+            B32StationMO * stationMO = [[B32StationMO alloc] initWithStation:station];
+            stationMO.from = self.showFrom;
+        }
+    }
+    
+    
+    [self.fetchedController performFetch:nil];
+    // check for obsolete stations in context and delete if any
+    for(NSInteger i = self.fetchedController.fetchedObjects.count - 1; i >= _numbefOfRecentItemsToStoreInCD; i--)
+    {
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        NSManagedObject * object = [self.fetchedController objectAtIndexPath:indexPath];
+        [self.fetchedController.managedObjectContext deleteObject:object];
+    }
+    
+    [[B32CoreDataStore shared] saveContext];
+/*
+    [self.fetchedController performFetch:nil];
+    assert(self.fetchedController.fetchedObjects.count <= 5);
+*/
+    [self performSegueWithIdentifier:@"unwindFromStationsToMainStationChosen" sender:nil];
 }
 
 #pragma mark - Right bar button item
@@ -460,7 +540,9 @@
 
 - (void) prepareRecent
 {
-    self.showRecent = NO;
+    [self.fetchedController performFetch:nil];
+
+    self.showRecent = (0 == self.fetchedController.fetchedObjects.count) ? NO : YES;
     
     if(!self.showRecent) {
         [self showAllStations];
@@ -476,6 +558,10 @@
     self.dataSourceSearchProxy = [[B32StationSearchProxy alloc] initWithDataSource:stationsDataSource];
 }
 
+- (BOOL)showFrom
+{
+    return (self.stationsDataSource == [[B32StationsData shared] fromStations]);
+}
 
 #pragma mark - Navigation
 

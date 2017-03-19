@@ -14,6 +14,9 @@
 #import "B32FromToTableViewCell.h"
 #import "B32StationsViewController.h"
 #import "B32StationsData.h"
+#import "B32CoreDataStore.h"
+#import "B32StationMO+CoreDataClass.h"
+#import "B32StationsViewController.h"
 
 @interface B32MainViewController ()
 
@@ -27,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,9 +55,34 @@
     self.mainTableView.date = date;
 }
 
--(IBAction)unwindFromStationChooser:(UIStoryboardSegue *) segue
+-(IBAction)unwindFromStationChooserCancel:(UIStoryboardSegue *) segue
 {
     
+}
+
+-(IBAction)unwindFromStationChooserChosen:(UIStoryboardSegue *) segue
+{
+    B32StationsViewController * sourceVC = segue.sourceViewController;
+    
+    BOOL showFrom = sourceVC.showFrom;
+    
+    NSFetchRequest * fetchRequest = [B32StationMO fetchRequestForFromStations:showFrom numberOfStationsToFetch:1];
+    
+    NSManagedObjectContext * context = [[B32CoreDataStore shared] managedObjectContext];
+    NSArray * stations = [context executeFetchRequest:fetchRequest error:nil];
+    if(stations.count > 0)
+    {
+        B32StationMO * stationMO = [stations objectAtIndex:0];
+        B32StationItem * stationItem = stationMO.station;
+        
+        if(showFrom)
+        {
+            self.mainTableView.fromStation = stationItem;
+        } else {
+            self.mainTableView.toStation = stationItem;
+        }
+        [self.mainTableView reloadData];
+    }
 }
 
 // UIViewControllerTransitioningDelegate functions

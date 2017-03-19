@@ -35,7 +35,7 @@
                                         <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FromToCell" id="hyp-sK-hbX" customClass="B32FromToTableViewCell">
-                                                <rect key="frame" x="0.0" y="28" width="230" height="60"/>
+                                                <rect key="frame" x="0.0" y="28" width="231" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hyp-sK-hbX" id="oWK-Gm-y9e">
                                                     <rect key="frame" x="0.0" y="0.0" width="230" height="59"/>
@@ -64,7 +64,7 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DateCell" id="eSp-XS-Dk7" customClass="B32DateTableViewCell">
-                                                <rect key="frame" x="0.0" y="88" width="230" height="60"/>
+                                                <rect key="frame" x="0.0" y="88" width="231" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eSp-XS-Dk7" id="sBF-Se-gCE">
                                                     <rect key="frame" x="0.0" y="0.0" width="230" height="59"/>
@@ -309,7 +309,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5uy-SE-42c" id="ydq-cu-nFK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Km3-Zb-ZTO">
@@ -385,7 +385,8 @@
                         <outlet property="searchBar" destination="nqK-MK-MVt" id="HH8-19-qbM"/>
                         <outlet property="searchBarTopConstraint" destination="dWc-6G-7id" id="BV6-Ez-Zu4"/>
                         <outlet property="tableView" destination="242-hr-Lic" id="R39-E0-z8o"/>
-                        <segue destination="XLs-eX-KPX" kind="unwind" identifier="unwindFromStationsToMain" unwindAction="unwindFromStationChooser:" id="p7X-rr-l9d"/>
+                        <segue destination="XLs-eX-KPX" kind="unwind" identifier="unwindFromStationsToMain" unwindAction="unwindFromStationChooserCancel:" id="p7X-rr-l9d"/>
+                        <segue destination="XLs-eX-KPX" kind="unwind" identifier="unwindFromStationsToMainStationChosen" unwindAction="unwindFromStationChooserChosen:" id="jee-dq-MAY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cn-al-cxn" userLabel="First Responder" sceneMemberID="firstResponder"/>

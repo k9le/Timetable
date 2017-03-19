@@ -20,6 +20,10 @@
 		E627B84B1E6F32880081FE8E /* B32StationSearchProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E627B84A1E6F32880081FE8E /* B32StationSearchProxy.m */; };
 		E677195C1E64868200A909DA /* allStations.json in Resources */ = {isa = PBXBuildFile; fileRef = E677195B1E64868200A909DA /* allStations.json */; };
 		E6B5AA651E30EFBF0005A4D3 /* B32MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B5AA641E30EFBF0005A4D3 /* B32MainView.m */; };
+		E6B710201E7DB512007DDBEF /* CoreDataStationStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6B7101E1E7DB512007DDBEF /* CoreDataStationStore.xcdatamodeld */; };
+		E6B7105B1E7DB93A007DDBEF /* B32CoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B7105A1E7DB93A007DDBEF /* B32CoreDataStore.m */; };
+		E6B710601E7DBF35007DDBEF /* B32StationMO+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B7105D1E7DBF35007DDBEF /* B32StationMO+CoreDataClass.m */; };
+		E6B710611E7DBF35007DDBEF /* B32StationMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B7105F1E7DBF35007DDBEF /* B32StationMO+CoreDataProperties.m */; };
 		E6B97D251E23995200F38E66 /* doroga_vdal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6B97D231E23995200F38E66 /* doroga_vdal.jpg */; };
 		E6B97D2C1E2428EE00F38E66 /* B32MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B97D2B1E2428EE00F38E66 /* B32MainTableView.m */; };
 		E6B97D2F1E264ED600F38E66 /* B32FromToTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B97D2E1E264ED600F38E66 /* B32FromToTableViewCell.m */; };
@@ -76,6 +80,13 @@
 		E677195B1E64868200A909DA /* allStations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allStations.json; sourceTree = "<group>"; };
 		E6B5AA631E30EFBF0005A4D3 /* B32MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32MainView.h; sourceTree = "<group>"; };
 		E6B5AA641E30EFBF0005A4D3 /* B32MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32MainView.m; sourceTree = "<group>"; };
+		E6B7101F1E7DB512007DDBEF /* CoreDataStationStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStationStore.xcdatamodel; sourceTree = "<group>"; };
+		E6B710591E7DB93A007DDBEF /* B32CoreDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = B32CoreDataStore.h; path = CoreDataStationStore/B32CoreDataStore.h; sourceTree = "<group>"; };
+		E6B7105A1E7DB93A007DDBEF /* B32CoreDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = B32CoreDataStore.m; path = CoreDataStationStore/B32CoreDataStore.m; sourceTree = "<group>"; };
+		E6B7105C1E7DBF35007DDBEF /* B32StationMO+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "B32StationMO+CoreDataClass.h"; path = "CoreDataStationStore/B32StationMO+CoreDataClass.h"; sourceTree = "<group>"; };
+		E6B7105D1E7DBF35007DDBEF /* B32StationMO+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "B32StationMO+CoreDataClass.m"; path = "CoreDataStationStore/B32StationMO+CoreDataClass.m"; sourceTree = "<group>"; };
+		E6B7105E1E7DBF35007DDBEF /* B32StationMO+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "B32StationMO+CoreDataProperties.h"; path = "CoreDataStationStore/B32StationMO+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E6B7105F1E7DBF35007DDBEF /* B32StationMO+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "B32StationMO+CoreDataProperties.m"; path = "CoreDataStationStore/B32StationMO+CoreDataProperties.m"; sourceTree = "<group>"; };
 		E6B97D231E23995200F38E66 /* doroga_vdal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = doroga_vdal.jpg; sourceTree = "<group>"; };
 		E6B97D2A1E2428EE00F38E66 /* B32MainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B32MainTableView.h; sourceTree = "<group>"; };
 		E6B97D2B1E2428EE00F38E66 /* B32MainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B32MainTableView.m; sourceTree = "<group>"; };
@@ -130,6 +141,7 @@
 		E627B8041E6B344D0081FE8E /* Station Data */ = {
 			isa = PBXGroup;
 			children = (
+				E6B7101D1E7DB4E6007DDBEF /* CoreDataStationStore */,
 				E6C81B1A1E70A91B00FD4AE7 /* Stations Search */,
 				E627B80D1E6B34E70081FE8E /* Station Group Patterns */,
 				E677195B1E64868200A909DA /* allStations.json */,
@@ -159,6 +171,20 @@
 				E627B81D1E6B67C50081FE8E /* B32GroupByCountryPattern.h */,
 			);
 			name = "Station Group Patterns";
+			sourceTree = "<group>";
+		};
+		E6B7101D1E7DB4E6007DDBEF /* CoreDataStationStore */ = {
+			isa = PBXGroup;
+			children = (
+				E6B710591E7DB93A007DDBEF /* B32CoreDataStore.h */,
+				E6B7105A1E7DB93A007DDBEF /* B32CoreDataStore.m */,
+				E6B7101E1E7DB512007DDBEF /* CoreDataStationStore.xcdatamodeld */,
+				E6B7105C1E7DBF35007DDBEF /* B32StationMO+CoreDataClass.h */,
+				E6B7105D1E7DBF35007DDBEF /* B32StationMO+CoreDataClass.m */,
+				E6B7105E1E7DBF35007DDBEF /* B32StationMO+CoreDataProperties.h */,
+				E6B7105F1E7DBF35007DDBEF /* B32StationMO+CoreDataProperties.m */,
+			);
+			name = CoreDataStationStore;
 			sourceTree = "<group>";
 		};
 		E6BE55D71E22E2F80060F008 = {
@@ -394,10 +420,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6B97D2C1E2428EE00F38E66 /* B32MainTableView.m in Sources */,
+				E6B710201E7DB512007DDBEF /* CoreDataStationStore.xcdatamodeld in Sources */,
 				E627B80B1E6B34CE0081FE8E /* B32GroupByCountryCityPattern.m in Sources */,
 				E627B81C1E6B5ADA0081FE8E /* B32StationTableViewCell.m in Sources */,
 				E6B97D321E2670BF00F38E66 /* B32DateTableViewCell.m in Sources */,
 				E6E0618C1E60700F00DF571E /* B32DatePickerAnimatedTransitioning.m in Sources */,
+				E6B710601E7DBF35007DDBEF /* B32StationMO+CoreDataClass.m in Sources */,
 				E6C81B1D1E70A9A500FD4AE7 /* B32SearchRequest.m in Sources */,
 				E6BE55E81E22E2F80060F008 /* AppDelegate.m in Sources */,
 				E627B8481E6EB9670081FE8E /* B32ActiveIndicatorView.m in Sources */,
@@ -408,8 +436,10 @@
 				E6B97D2F1E264ED600F38E66 /* B32FromToTableViewCell.m in Sources */,
 				E627B8031E6B34370081FE8E /* B32StationsData.m in Sources */,
 				E6E061811E5C57BC00DF571E /* B32DatePicker.m in Sources */,
+				E6B7105B1E7DB93A007DDBEF /* B32CoreDataStore.m in Sources */,
 				E627B84B1E6F32880081FE8E /* B32StationSearchProxy.m in Sources */,
 				E627B81F1E6B67C50081FE8E /* B32GroupByCountryPattern.m in Sources */,
+				E6B710611E7DBF35007DDBEF /* B32StationMO+CoreDataProperties.m in Sources */,
 				E627B8161E6B389D0081FE8E /* B32StationsViewController.m in Sources */,
 				E6BE560A1E22E60B0060F008 /* B32MainViewController.m in Sources */,
 				E6B5AA651E30EFBF0005A4D3 /* B32MainView.m in Sources */,
@@ -630,6 +660,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E6B7101E1E7DB512007DDBEF /* CoreDataStationStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E6B7101F1E7DB512007DDBEF /* CoreDataStationStore.xcdatamodel */,
+			);
+			currentVersion = E6B7101F1E7DB512007DDBEF /* CoreDataStationStore.xcdatamodel */;
+			path = CoreDataStationStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E6BE55D81E22E2F80060F008 /* Project object */;
 }

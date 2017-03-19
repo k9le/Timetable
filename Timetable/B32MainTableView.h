@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StationDataTypes.h"
 
 @interface B32MainTableView : UITableView <UITableViewDelegate, UITableViewDataSource>
 
 - (instancetype)initWithCoder:(NSCoder *)coder;
 
 @property (nonatomic) NSDate * date;
-
+@property (nonatomic) B32StationItem * fromStation;
+@property (nonatomic) B32StationItem * toStation;
 
 @end

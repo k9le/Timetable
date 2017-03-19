@@ -12,5 +12,6 @@
 @interface B32StationsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (nonatomic) B32StationsDataSource * stationsDataSource;
+@property (nonatomic, readonly) BOOL showFrom;
 
 @end

@@ -20,7 +20,7 @@
 
 @end
 
-@interface B32StationItem : NSObject <B32SearchableIFace>
+@interface B32StationItem : NSObject <B32SearchableIFace, NSCoding>
 
 @property (nonatomic) NSString * countryTitle;
 @property (nonatomic) B32PointItem * point;
@@ -49,7 +49,7 @@
 
 @end
 
-@interface B32CityItem : NSObject
+@interface B32CityItem : NSObject <NSCoding>
 
 @property (nonatomic) NSString * countryTitle;
 @property (nonatomic) B32PointItem * point;
