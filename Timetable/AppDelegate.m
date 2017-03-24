@@ -10,6 +10,8 @@
 #import "B32JSONFileLoader.h"
 #import "B32StationsData.h"
 
+@import GoogleMaps;
+
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface AppDelegate ()
@@ -40,6 +42,8 @@
         
         NSLog(@"Data is loaded");
     });
+    
+    [GMSServices provideAPIKey:@"AIzaSyB1E_F4NFEKGSfSUz6Ss3T6ZAFWDfqXgRU"];
     
     return YES;
 }

@@ -10,6 +10,7 @@
 #import "B32StationsData.h"
 #import "StationDataTypes.h"
 #import "B32StationTableViewCell.h"
+#import "B32StationVastTableViewCell.h"
 #import "B32GroupByCityCountryPattern.h"
 #import "B32GroupByCountryCityPattern.h"
 #import "B32GroupByCountryPattern.h"
@@ -23,6 +24,8 @@
     float _durationOfSearchBarAnimation;
     
     NSInteger _numbefOfRecentItemsToStoreInCD;
+    
+    NSIndexPath * _vastCellIndexPath;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -39,6 +42,9 @@
 @property (nonatomic) NSFetchedResultsController * fetchedController;
 
 - (void) prepareRecent;
+
+- (BOOL) isVast:(NSIndexPath *)indexPath;
+- (void) hideVastCell;
 
 - (void) regroup;
 - (void) showAllStations;
@@ -159,8 +165,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    B32StationTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    BOOL isVast = [self isVast:indexPath];
     
+    UITableViewCell * cell;
+
     NSInteger section = [indexPath section];
     NSInteger row = [indexPath row];
     
@@ -178,12 +186,13 @@
         }
     }
     
-    cell.titleLabel.text = station.stationTitle;
-    if(0 == [station.regionTitle length])
+    if(isVast)
     {
-        cell.detailLabel.text = [NSString stringWithFormat:@"%@, %@", station.city.cityTitle, station.city.countryTitle];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"VastCell" forIndexPath:indexPath];
+        [(B32StationVastTableViewCell *)cell setStation:station];
     } else {
-        cell.detailLabel.text = [NSString stringWithFormat:@"%@, %@, %@", station.city.cityTitle, station.city.regionTitle, station.city.countryTitle];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        [(B32StationTableViewCell *)cell setStation:station];
     }
     
     return cell;
@@ -254,6 +263,56 @@
     [self performSegueWithIdentifier:@"unwindFromStationsToMainStationChosen" sender:nil];
 }
 
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    if(nil != _vastCellIndexPath)
+    {
+        BOOL isVast = [self isVast:indexPath];
+        
+        [self hideVastCell];
+        
+        if(isVast) return;
+    }
+    
+    _vastCellIndexPath = indexPath;
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[_vastCellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+    
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self isVast:indexPath] ? 271 : 61 ;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
+}
+
+#pragma mark - Vast cell management
+
+- (BOOL)isVast:(NSIndexPath *)indexPath
+{
+    return _vastCellIndexPath && ([_vastCellIndexPath compare:indexPath] == NSOrderedSame);
+}
+
+- (void) hideVastCell
+{
+    if(nil == _vastCellIndexPath) return;
+    
+    NSIndexPath * indexPathForVast = [_vastCellIndexPath copy];
+    
+    _vastCellIndexPath = nil;
+
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPathForVast] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+}
+
 #pragma mark - Right bar button item
 
 - (void) setSearchRightBarButtonItem
@@ -273,6 +332,8 @@
 
 
 - (IBAction)rightBarButtonItemTapped:(UIBarButtonItem *)sender {
+
+    [self hideVastCell];
 
     if(self.showRecent)
     {
@@ -318,6 +379,8 @@
 
 - (IBAction)leftBarButtonItemTapped:(UIBarButtonItem *)sender {
     [self.searchBar resignFirstResponder];
+    
+    [self hideVastCell];
     
     [self performSegueWithIdentifier:@"unwindFromStationsToMain" sender:nil];
 }
@@ -511,6 +574,8 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    _vastCellIndexPath = nil;
+
     if(nil == searchText || 0 == searchText.length)
     {
         // enable group bar button item
